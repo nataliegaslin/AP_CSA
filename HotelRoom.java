@@ -1,10 +1,17 @@
 public class HotelRoom {
   private int roomNumber;
+  private int sizeOfRoom;
   private Person guestOne;
   private Person guestTwo;
 
   HotelRoom(int roomNum){
     roomNumber = roomNum;
+  }
+
+  HotelRoom(int roomNum, int roomSize){
+    roomNumber = roomNum;
+    sizeOfRoom = roomSize;
+
   }
   public void checkIn(Person guest) {
     if (checkCapacity() == 0) {
@@ -28,16 +35,16 @@ public class HotelRoom {
       guestTwo = null;
     }
     else if (guestOne != null && guestTwo != null && guest.matches(guestOne) == false && guest.matches(guestTwo) == false) {
-      System.out.println(guest + " isn't in this room!");
+      System.out.println(guest.getName() + " isn't in this room!");
     }
     else if (guestTwo == null && guest.matches(guestOne)) {
       guestOne= null;
     }
     else if (guestOne == null && guest.matches(guestTwo) == false) {
-      System.out.println(guest + " isn't in this room!");
+      System.out.println(guest.getName() + " isn't in this room!");
     }
     else if (guestTwo == null && guest.matches(guestOne) == false) {
-      System.out.println(guest + " isn't in this room!");
+      System.out.println(guest.getName() + " isn't in this room!");
     }
     else if (guestTwo != null && guestOne !=null && guest.matches(guestOne)) {
     guestOne = null;
@@ -75,5 +82,9 @@ public class HotelRoom {
     else {
       System.out.println("There are no guests in this room!");
     }
+}
+
+public void ElderlySuite() {
+
 }
 }
