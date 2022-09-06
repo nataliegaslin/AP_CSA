@@ -1,0 +1,58 @@
+n = 0
+y = 0
+n = 1
+
+n = 2
+
+n = 3
+
+n = 4
+output: "goteem"
+y = 5
+output: 5
+
+n = 5
+y = 10
+output: 10
+
+n = 6
+output: "goteem"
+y = 15
+output: 15
+
+n = 7
+y = 20
+output: 20
+
+n = 8
+output = "goteem"
+y = 25
+output = 25
+
+n = 9
+y = 30
+output = 30
+
+n = 10
+y = 35
+output = 35
+
+n = 11
+y = 40
+output = 40
+
+n = 12
+
+n = 13
+
+n = 14
+
+n = 15
+
+n = 16
+
+n = 17
+
+n = 18
+
+n = 19
