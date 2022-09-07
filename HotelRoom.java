@@ -83,8 +83,4 @@ public class HotelRoom {
       System.out.println("There are no guests in this room!");
     }
 }
-
-public void ElderlySuite() {
-
-}
 }
