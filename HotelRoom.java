@@ -1,12 +1,13 @@
 public class HotelRoom {
-  private int roomNumber;
-  private int sizeOfRoom;
-  private Person guestOne;
-  private Person guestTwo;
+  public int roomNumber;
+  public int sizeOfRoom;
+  public Person guestOne;
+  public Person guestTwo;
 
   HotelRoom(int roomNum){
     roomNumber = roomNum;
   }
+
   //checks in a guest to a specific room
   public void checkIn(Person guest) {
     if (checkCapacity() == 0) {

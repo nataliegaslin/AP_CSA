@@ -1,8 +1,8 @@
 public class Person {
-  private double height;
-  private int age;
-  private String name;
-  private String hairColor;
+  public double height;
+  public int age;
+  public String name;
+  public String hairColor;
 
   Person(double h, int a, String n, String hC) {
     height = h;
@@ -31,4 +31,16 @@ public class Person {
      return false; 
     }
   }
+   //checks whether or not a person qualifies for the elderly suite
+    public boolean isElderly(Person guest){
+        if (guest.getAge() >= 60) {
+            return true;
+        }
+        else if (guest.getAge() < 60) {
+            return false;
+        }
+        else {
+          return false;
+        }
+    }
 }
