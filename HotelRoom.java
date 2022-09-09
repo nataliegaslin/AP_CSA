@@ -8,12 +8,16 @@ public class HotelRoom {
     roomNumber = roomNum;
   }
 
+  HotelRoom(int roomNum, int roomSize) {
+      sizeOfRoom = roomSize;eight
+  }
+
   //checks in a guest to a specific room
   public void checkIn(Person guest) {
-    if (checkCapacity() == 0) {
-      System.out.println("There is no more space in this room!");
+    if (checkCapacity() == 2) {
+      System.out.println("There is no more space in this room for " + guest.getName() + "!");
     }
-    else if (checkCapacity() == 2) {
+    else if (checkCapacity() == 1) {
       guestOne = guest;
       System.out.println(guest.getName() + " is checked into room " + roomNumber + ".");
     }
@@ -28,7 +32,7 @@ public class HotelRoom {
   }
     // removes a guest from a room
   public void checkOut(Person guest) {
-    if (checkCapacity() == 2) {
+    if (checkCapacity() == 0) {
       System.out.println("There are no people in this room!");
     }
     else if (guestOne == null && guest.matches(guestTwo)) {
@@ -60,7 +64,7 @@ public class HotelRoom {
   // checks the capacity of a room
   public int checkCapacity(){
     if (guestOne == null && guestTwo == null){
-      return 2;
+      return 0;
     }
     else if (guestOne != null && guestTwo == null) {
       return 1;
@@ -69,7 +73,7 @@ public class HotelRoom {
       return 1;
     }
     else {
-      return 0;
+      return 2;
     }
   }
   // prints out the guests' age, name, hair color, and height in a given room
