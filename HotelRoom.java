@@ -7,9 +7,18 @@ public class HotelRoom {
   HotelRoom(int roomNum){
     roomNumber = roomNum;
   }
-
+ // constructor for larger/smaller rooms that 2 (must enter a positive number for roomSize)
   HotelRoom(int roomNum, int roomSize) {
-      sizeOfRoom = roomSize;eight
+    roomNumber = roomNum;  
+    sizeOfRoom = roomSize;
+    if (sizeOfRoom > 5) {
+      tooBig();
+      sizeOfRoom = 5;
+    }
+    else {
+      roomSizeMessage();
+    }
+                        
   }
 
   //checks in a guest to a specific room
@@ -92,4 +101,12 @@ public class HotelRoom {
       System.out.println("There are no guests in this room!");
     }
 }
+  public void tooMany(){
+    System.out.println("We don't have any rooms that big! We will offer you a 5 persion room instead.");
+  }
+  
+  public void roomSizeMessage(){
+    System.out.println("This room can fit " + sizeOfRoom + " people!")
+    }
+                         
 }
