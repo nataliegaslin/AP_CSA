@@ -1,5 +1,4 @@
 public class ElderlySuite extends HotelRoom {
-    Person guest;
 
     ElderlySuite(int roomNum){
         super(roomNum);
