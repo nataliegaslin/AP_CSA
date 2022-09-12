@@ -9,7 +9,15 @@ public class HotelRoom {
   }
 
   HotelRoom(int roomNum, int roomSize) {
-      sizeOfRoom = roomSize;eight
+      roomNumber = roomNum;
+      sizeOfRoom = roomSize;
+      if (sizeOfRoom >  5) {
+        tooMany();
+        sizeOfRoom = 5;
+      }
+      else {
+        roomSizeMessage();
+      }
   }
 
   //checks in a guest to a specific room
@@ -91,5 +99,14 @@ public class HotelRoom {
     else {
       System.out.println("There are no guests in this room!");
     }
+}
+// tells people if the roomSize is set to too many people
+public void tooMany(){
+  System.out.println("We don't have any rooms that big! We will offere you a 5 person room instead.");
+
+}
+// prints out how big a given room is
+public void roomSizeMessage(){
+  System.out.println("This room can fit " + sizeOfRoom + " people!");
 }
 }

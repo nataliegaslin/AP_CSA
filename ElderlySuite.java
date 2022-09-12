@@ -7,7 +7,7 @@ public class ElderlySuite extends HotelRoom {
   
     //checks in an elderly person using the checkIn method from HotelRoom
     public void checkIn (Person guest){
-        if (guest.isElderly(guest) == true) {
+        if (guest.isElderly() == true) {
             super.checkIn(guest);
         }
         else {

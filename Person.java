@@ -32,11 +32,11 @@ public class Person {
     }
   }
    //checks whether or not a person qualifies for the elderly suite
-    public boolean isElderly(Person guest){
-        if (guest.getAge() >= 60) {
+    public boolean isElderly(){
+        if (age >= 60) {
             return true;
         }
-        else if (guest.getAge() < 60) {
+        else if (age < 60) {
             return false;
         }
         else {
