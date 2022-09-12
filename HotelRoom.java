@@ -18,16 +18,6 @@ public class HotelRoom {
       else {
         roomSizeMessage();
       }
-
-    roomNumber = roomNum;  
-    sizeOfRoom = roomSize;
-    if (sizeOfRoom > 5) {
-      tooBig();
-      sizeOfRoom = 5;
-    }
-    else {
-      roomSizeMessage();
-    }
                         
   }
 
