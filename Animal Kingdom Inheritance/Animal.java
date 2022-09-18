@@ -1,4 +1,4 @@
-public class Animals {
+public class Animal {
     String name;
     String uniqueTrait;
 
@@ -12,7 +12,6 @@ public class Animals {
     public void printTrait(){
         System.out.println("Animal: " + name);
         System.out.pirntln("      trait: " + uniqueTrait);
-        Super.printTrait();
     }
        
     }
