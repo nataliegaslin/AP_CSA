@@ -1,6 +1,8 @@
 public class Annelida extends Animal {
-    
+   
     public Annelida(String name){
-        super(name, "segmented");
+        String allTraits = trait + "segmented";
+        super(name, allTraits);
+        
     }
 }
