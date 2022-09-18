@@ -1,7 +1,6 @@
-public class Annelida extends Phyla {
-    super.uniqueTrait = "segmented";
-
-    Annelida(){
-        
+public class Annelida extends Animal {
+    
+    public Annelida(String name){
+        super(name, "segmented");
     }
 }
