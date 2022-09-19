@@ -1,3 +1,3 @@
-public class Cnidaria extends Phyla {
+public class Cnidaria extends Animal {
 
 }

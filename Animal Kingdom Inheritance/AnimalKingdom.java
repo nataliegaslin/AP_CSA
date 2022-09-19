@@ -1,8 +1,13 @@
-public class Animal {
+public class AnimalKingdom {
+    Phyla phylaOne;
+    Phyla phylaTwo;
+
     String name;
     String uniqueTrait;
 
-    public Animal(String nameP, String traitP){
+    public AnimalKingdom (String nameP, String traitP){
+        phylaOne = new Phyla("Arthropoda");
+        phylaTwo = new Phyla("Chordata");
         name = nameP;
         uniqueTrait = trait;
         System.out.println(uniqueTrait);
@@ -14,7 +19,7 @@ public class Animal {
     }
     public void printTrait(){
         System.out.println("Animal: " + name);
-        System.out.pirntln("Trait: " + uniqueTrait);
+        System.out.println("Trait: " + uniqueTrait);
     }
        
     }
