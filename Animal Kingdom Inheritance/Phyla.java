@@ -1,28 +1,55 @@
 public class Phyla {
     String phylaName;
     String phylaTrait;
-    Subphyla subphylaOne;
-    Subphyla subphylaTwo;
-    
+   
 
     public Phyla(String nameP){
         phylaName = nameP;
-        if(phylaName == "Chordata"){
-            subphylaOne = new Subphyla("vertebrata");
-            subphylaTwo = null
-        else if (phylaName == "Arthropoda"){
-            subphylaOne = new Subphyla("Chelicerates");
-            subphylaTwo = new Subphyla("Crustaceans");
+
+        if(phylaName == "chordata"){
+            phylaTrait = "has a notochord";
+
+        else if (phylaName == "arthropoda"){
+            phylaTrait = "has an exoskeleton";
+        }
+        
+        else if (phylaName == "annelida"){
+            phylaTrait = "is a segmented worm";
+        }
+
+        else if (phylaName == "nematoda"){
+            phylaTrait = "is a round worm";
+        }
+
+        else if (phylaName == "platyhelminthes"){
+            phylaTrait = "is a flat worm";
+        }
+
+        else if (phylaName == "porifera"){
+            phylaTrait = "is a sponge";
+        }
+
+        else if (phylaName == "echinodermata"){
+            phylaTrait = "has a star-like appearance";
+        }
+
+        else if (phylaName == "cnidaria"){
+            phylaTrait = "has radial symmetry";
+        }
+
+        else if (phylaName == "mollusca") {
+            phylaTrait = "covered by a calcareous shell";
+        }
+
+        else {
+            System.out.println("Please enter a valid phyla!");
         }
         }
     }
+     public void printTrait(){
+        System.out.println("Phyla: " + phylaName);
+        System.out.println("Trait: " + phylaTrait);
 
-    public String whichPhyla(String inputPhyla){
-        Hashtable<String, String> phylaDict = new Hashtable<String,String>(); //https://codegym.cc/groups/posts/how-to-create-a-dictionary-in-java
-            phylaDict.put("Annelida", "segmented worm");
-            phylaDict.put("Nematoda", "round worm")
-            PhylaDict.put("Arthropoda", "exoskeleton");
-            phylaDict.put("Platyhelminthes", "flat worm");
+
             
     }
-}
