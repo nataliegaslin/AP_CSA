@@ -2,7 +2,7 @@ public class Subphyla extends Phyla {
     String subphylaName;
     String subphylaTrait;
 
-    public Suphyla(String subphylaNameP, phylaNameP){
+    public Subphyla(String subphylaNameP, String phylaNameP){
         super(phylaNameP);
         subphylaName = subphylaNameP;
 
@@ -11,7 +11,7 @@ public class Subphyla extends Phyla {
         }
 
         else if (subphylaName == "crustecean"){
-            subphylaTrait == "has two pairs of antennae";
+            subphylaTrait = "has two pairs of antennae";
         }
          else if (subphylaName == "labiatae"){
             subphylaTrait = "is a millipede or centipede";
@@ -29,4 +29,5 @@ public class Subphyla extends Phyla {
         System.out.println("Subphyla: " + subphylaName);
         System.out.println("Trait: " + subphylaTrait);
         super.printTrait();
+    }
 }
