@@ -2,7 +2,7 @@ public class Animal extends Family {
     String name;
     String uniqueTrait;
 
-    public Animal(String nameP, String traitP, String famNameP, String classNameP, String suybphylaNameP, String phylaNameP) {
+    public Animal(String nameP, String traitP, String famNameP, String classNameP, String subphylaNameP, String phylaNameP) {
         super(famNameP, classNameP, subphylaNameP, phylaNameP);
         name = nameP;
         uniqueTrait = traitP;
