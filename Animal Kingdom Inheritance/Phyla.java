@@ -2,7 +2,7 @@ public class Phyla {
     String phylaName;
     String phylaTrait;
    
-
+    \\all of the possiblep phyla
     public Phyla(String nameP){
         phylaName = nameP;
 
@@ -48,6 +48,6 @@ public class Phyla {
 
      public void printTrait(){
         System.out.println("Phyla: " + phylaName);
-        System.out.println("Trait: " + phylaTrait);
+        System.out.println("    Trait: " + phylaTrait);
      }
     }

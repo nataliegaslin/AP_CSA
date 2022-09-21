@@ -2,6 +2,7 @@ public class AnimalClass extends Subphyla {
     String className;
     String classTrait;
 
+    \\all available animal classes
     public AnimalClass(String classNameP, String subphylaNameP, String phylaNameP){
         super(subphylaNameP, phylaNameP);
         className = classNameP;
@@ -78,6 +79,10 @@ public class AnimalClass extends Subphyla {
             classTrait = "doesn't have any blood";
         }
         
+        else if (className == "coral" || className == "anenome") {
+            classTrait = "has bright colors";
+        }
+
         else if (className == "oyster" || className == "clam"){
             classTrait = "shells are very calcified";
         }
@@ -97,7 +102,7 @@ public class AnimalClass extends Subphyla {
 
      public void printTrait(){
         System.out.println("Class: " + className);
-        System.out.println("Trait: " + classTrait);
+        System.out.println("    Trait: " + classTrait);
         super.printTrait();
 }
 }

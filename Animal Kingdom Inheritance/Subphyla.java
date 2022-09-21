@@ -1,7 +1,7 @@
 public class Subphyla extends Phyla {
     String subphylaName;
     String subphylaTrait;
-
+    \\all of the possible subphyla
     public Subphyla(String subphylaNameP, String phylaNameP){
         super(phylaNameP);
         subphylaName = subphylaNameP;
@@ -27,7 +27,7 @@ public class Subphyla extends Phyla {
 
     public void printTrait(){
         System.out.println("Subphyla: " + subphylaName);
-        System.out.println("Trait: " + subphylaTrait);
+        System.out.println("    Trait: " + subphylaTrait);
         super.printTrait();
     }
 }
