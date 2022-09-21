@@ -26,7 +26,7 @@ public class AnimalClass extends Subphyla {
             classTrait = "is a fish with little extra tissue";
         }
         
-        else if (className == "cartilagenous fish"){
+        else if (className == "cartilaginous fish"){
             classTrait = "is mostly made up of cartilage";
         }
         
