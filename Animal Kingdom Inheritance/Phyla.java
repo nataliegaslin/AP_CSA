@@ -8,7 +8,7 @@ public class Phyla {
 
         if(phylaName == "chordata"){
             phylaTrait = "has a notochord";
-
+        }
         else if (phylaName == "arthropoda"){
             phylaTrait = "has an exoskeleton";
         }
@@ -45,11 +45,9 @@ public class Phyla {
             System.out.println("Please enter a valid phyla!");
         }
         }
-    }
+
      public void printTrait(){
         System.out.println("Phyla: " + phylaName);
         System.out.println("Trait: " + phylaTrait);
-
-
-            
+     }
     }
