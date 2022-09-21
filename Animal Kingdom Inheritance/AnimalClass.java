@@ -24,3 +24,4 @@ public class AnimalClass extends Subphyla {
         System.out.println("Trait: " + classTrait);
         super.printTrait();
 }
+}
