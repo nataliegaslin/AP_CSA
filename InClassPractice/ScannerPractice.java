@@ -24,21 +24,22 @@ public class ScannerPractice {
 
         for (int i=0; i<fileLines; i++){
             lines[i] = myScanner.nextLine();
+            System.out.println(lines);
         }
 
-        for(int i =0; i<lines.length; i++){
-            lines[i] = lines[i].substring(0,(lines[i].length())/2);
-        }
+         // for(int i =0; i<lines.length; i++){
+            //lines[i] = lines[i].substring(0,(lines[i].length())/2);
+    
 
         for(String line : lines){
             System.out.println(line);
         }
         }
+    
         catch(Exception e){
             System.out.println("failure :(");
 
             }        
 
-        }
 }
-
+}
