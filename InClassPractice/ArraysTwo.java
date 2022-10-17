@@ -24,7 +24,6 @@ public class ArraysTwo {
 
         int numSongs = 0;
         int numArtists = 0;
-        int nums = 0;
         
         for (int i=0; i<fileLines; i++){
             if (i % 2 == 0) {
@@ -37,19 +36,22 @@ public class ArraysTwo {
             }
 
         }
-            for(int j=0; j< numSongs-1; j++){
-                if (nums < numSongs-1){
-                    String a = songs[j];
-                    String b = songs[j+1];
-                    if (a.compareTo(b) == -1){
-                        songs[nums] = a;
-                        nums ++;
-                } 
+            for(int j=0; j< numArtists-1; j++){
+                int currentLowest = j;
+
+                for(int k = j + 1; k < numArtists; k++){
+                    if(artists[currentLowest].compareTo(artists[k]) > 0) {
+                        currentLowest = k;
+                    }
                 }
+
+            String temp = artists[j];
+            artists[j] = artists[currentLowest];
+            artists[currentLowest] = temp;
                 
             }
 
-        for(String line : songs){
+        for(String line : artists){
             System.out.println(line);
         }
       
