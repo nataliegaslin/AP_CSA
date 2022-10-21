@@ -17,7 +17,7 @@ public class Hangman{
         switch(input){
                 case "a":
                     
-                case "2":
+                case "b":
                     passed = runTestTwo();
                     break;
                 case "3":
