@@ -1,4 +1,4 @@
-import java.util.Random;
+import java.lang.Math;
 import java.util.ArrayList;
 
 
@@ -11,8 +11,7 @@ public class GameSpinner {
 
     //generates a random number
     public int spin(){
-        Random random = new Random();
-        int number = random.nextInt(sectors);
+       int number = (int)((Math.random() * sectors) + 1);
     
         int l = 0;
         while(l < 1){
@@ -40,4 +39,16 @@ public class GameSpinner {
         }
         return nums;
        }      
+    public static void main(String[] args){
+        GameSpinner g = new GameSpinner(4);
+        System.out.println(g.spin());
+        System.out.println(g.spin());
+        System.out.println(g.spin());
+        System.out.println(g.spin());
+        System.out.println(g.spin());
+        System.out.println(g.spin());
+        System.out.println(g.spin());
+        System.out.println("CURRENT RUN: " + g.currentRun());
+
+    }
 }
