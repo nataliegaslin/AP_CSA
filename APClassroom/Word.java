@@ -16,4 +16,5 @@ public class Word {
             }
         }
         return word;
+    }
 }
