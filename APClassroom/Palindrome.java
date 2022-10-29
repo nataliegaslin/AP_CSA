@@ -9,17 +9,17 @@ public class Palindrome {
         return result;
     }
     public static String reverseString(String str){
-        removeSpaces(str);
+        String word = removeSpaces(str);
         String result = "";
-        for(int h = str.length()-1; h > -1; h-=1){
-            result += str.substring(h, h+1);
+        for(int h = word.length()-1; h > -1; h-=1){
+            result += word.substring(h, h+1);
         }
         return result;
 
     }
     public static void palindromeChecker(String str){
-        removeSpaces(str);
-        if (reverseString(str).equals(str)){
+        String newWord = removeSpaces(str);
+        if (reverseString(newWord).equals(newWord)){
             System.out.println(str + " is a palindrome");
         }
         else{
