@@ -8,7 +8,7 @@ public class Palindrome {
 
     }
     public static void palindromeChecker(String str){
-        if (str.reverseString.equals(str)){
+        if (reverseString(str).equals(str)){
             System.out.println(str + " is a palindrome");
         }
         else{
