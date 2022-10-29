@@ -1,4 +1,4 @@
-import java.lang.*;
+import java.util.*;
 public class Word {
     public static String scrambleWord(String word){
         int i = 0;
