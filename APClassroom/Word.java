@@ -1,5 +1,5 @@
 public class Word {
-    public String scrambleWord(String word){
+    public static String scrambleWord(String word){
         int i = 0;
         while(i < word.length() -1){
             if(word.substring(i, i+1).compareTo("A") == 0){
