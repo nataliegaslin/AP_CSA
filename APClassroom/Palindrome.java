@@ -1,5 +1,6 @@
 public class Palindrome {
     public static String removeSpaces(String str){
+        String result = "";
         for(int b = 0; b <str.length(); b++){
             if(!str.substring(b, b+1).equals(" ")){
                 result += str.substring(i, i+1);
