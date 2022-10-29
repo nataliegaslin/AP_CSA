@@ -19,9 +19,9 @@ public class Word {
     }
     
     public static void scrambleOrRemove(List <String> wordList){
-        for(int h = 0; h < wordList.size(); h++){
+        for(int h = wordList.size() -1; h > -1; h--){
             String scrambled = scrambleWord(wordList.get(h));
-            if(wordList.get(h) == scrambled){
+            if(wordList.get(h).equals(scrambled)){
                 wordList.remove(h);
             }
             else{
