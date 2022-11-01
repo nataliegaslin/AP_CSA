@@ -8,7 +8,9 @@ public class Bus{
         currentStop++;
         if (currentStop > stops){
             currentStop = stops;
-            currentStop--;
+            while(currentStop >1){
+                currentStop--;
+            }
         }
 
         
