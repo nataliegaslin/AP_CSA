@@ -1,8 +1,9 @@
 public class Bus{
-    int stops = 0;
-    int currentStop = 1;
+    int stops;
+    int currentStop;
     public Bus(int numStops){
         stops = numStops;
+        currentStop = 1;
     }
     public void move(){
         currentStop++;
