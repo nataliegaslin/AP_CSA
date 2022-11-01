@@ -23,7 +23,8 @@ public class HiddenWord {
                 }
           
             }
-            return returnWord;
+      
         }
+          return returnWord;
         } 
 }
