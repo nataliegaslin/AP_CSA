@@ -3,7 +3,7 @@ public class Palindrome {
         String result = "";
         for(int b = 0; b <str.length(); b++){
             if(!str.substring(b, b+1).equals(" ")){
-                result += str.substring(i, i+1);
+                result += str.substring(b, b+1);
             }
         }
         return result;
@@ -25,5 +25,10 @@ public class Palindrome {
         else{
             System.out.println(str + " is not a palindrome");
         }
+    }
+
+    public static void main(String[] args){
+        palindromeChecker("taco cat");
+        palindromeChecker("natalie");
     }
 }
