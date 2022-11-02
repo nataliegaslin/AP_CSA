@@ -1,17 +1,23 @@
 public class Bus{
     int stops;
     int currentStop;
+    boolean direction;
     public Bus(int numStops){
         stops = numStops;
         currentStop = 1;
     }
     public void move(){
-        currentStop++;
-        if (currentStop > stops){
-            currentStop = stops;
-            while(currentStop >1){
-                currentStop--;
+        if (currentStop ==1){
+            direction = true;
+            currentStop++;
+        
             }
+        if(currentStop >= stops){
+            direction = false;
+        }
+        if(direction = false){
+            currentStop--;
+        }
         }
 
         
