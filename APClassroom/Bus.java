@@ -15,7 +15,7 @@ public class Bus{
         if (direction == true){
             currentStop++;
         }
-        if(currentStop >= stops){
+        if(currentStop > stops){
             direction = false;
         }
         if(direction == false){
