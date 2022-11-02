@@ -20,8 +20,6 @@ public class Bus{
         }
         }
 
-        
-    }
     public int getCurrentStop(){
         return currentStop;
     }
