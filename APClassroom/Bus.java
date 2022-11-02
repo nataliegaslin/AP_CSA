@@ -9,7 +9,7 @@ public class Bus{
     public void move(){
         if (currentStop ==1){
             direction = true;
-            currentStop++;
+     
         
             }
         if (direction == true){
