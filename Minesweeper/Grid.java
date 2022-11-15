@@ -9,6 +9,12 @@ public class Grid{
     }
 
     public makeGrid(){
-        String[][] grid = new String(xDim, yDim);
+        String[][] grid = new String[xSize][ySize];
+        for(line : grid){
+            for(item : xSize){
+                item = 
+            }
+        }
     }
+    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
 }

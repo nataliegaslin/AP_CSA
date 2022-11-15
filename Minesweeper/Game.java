@@ -8,6 +8,5 @@ public class Game {
     ySize = yDim;
     diff = difficulty;
     }
-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
 
 }
