@@ -1,4 +1,4 @@
-public class Grid{  
+public class Grid {  
     private static int xSize;
     private static int ySize;
     private static int mineNum;
@@ -9,9 +9,9 @@ public class Grid{
     mineNum = num;
 
     }
-
     public static void makeGrid(){
          String[][] grid = new String[xSize][ySize];
+         String[][] actualValue = new String[xSize][ySize];
 
         for(int i = 0; i< mineNum; i++){
             int x = (int) (Math.random() * xSize);
@@ -21,17 +21,21 @@ public class Grid{
                 x = (int) (Math.random() * xSize);
                 y = (int) (Math.random() * ySize);
             }
-            grid[x][y] = mine();
+            actualValue[x][y] = "m";
         }
        
 
         for(int i =0; i<grid.length; i++){
             for(int j=0; j<grid[i].length; j++){
                 grid[i][j] = "[0]";
-                System.out.print(grid[i][j]);
+                System.out.println(grid[i][j]);
             } 
         }
     }
+     public static flip(int xCoor, int yCoor){
+        grid[xCoor][yCoor] = trueValue;
+    }
+
      public static void main(String[] args){
         Grid newGrid = new Grid(6, 5, 8);
         newGrid.makeGrid();

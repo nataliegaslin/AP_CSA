@@ -1,15 +1,21 @@
 public class Tile{
-    private boolean isMine = false;
+    private boolean isMine;
+    private boolean isFlag;
+    private boolean isEmpty;
+    private int nearMines;
+
     public Tile(){
         //no inputs
     }
 
-    public String mine(){
-        isMine = true;
-        return "⎈";
+    public boolean mine(){
+        if
 
     }
-    public String flag(){
+    public boolean flag(){
         
+    }
+    public static flip(int xCoor, int yCoor){
+        grid[xCoor][yCoor] = 
     }
 }
