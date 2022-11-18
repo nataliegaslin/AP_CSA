@@ -1,20 +1,19 @@
 public class Tile{
     public boolean isMine = false;
-    private boolean isFlag;
-    private boolean isEmpty;
-    private int nearMines;
-    private String app;
+    private boolean mineEdge = false;
+    int minesNear = 0;
+
 
 
     public String markMine(){
         isMine = true;
-        return "[m]";
+        return "*";
+
+    }
+    public String setup(){
+        return "[]";
     }
 
 
-
-    public String markEmpty(){
-        isEmpty = true;
-        return "[0]";
-    }
+   
 }
