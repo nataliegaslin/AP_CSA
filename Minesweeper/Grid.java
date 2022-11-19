@@ -13,15 +13,13 @@ public class Grid {
     }
 
     public void makeGrid(){
-    
-
 
         for(int i = 0; i< mineNum; i++){
             int x = (int) (Math.random() * xSize);
             int y = (int) (Math.random() * ySize);
 
             if(myGrid[x][y] != null){
-                if(myGrid[x][y].isMine == true){
+                if(myGrid[x][y].isMine() == true){
                     x = (int) (Math.random() * xSize);
                     y = (int) (Math.random() * ySize);
                 }
@@ -36,42 +34,30 @@ public class Grid {
 
         for(int i =0; i<myGrid.length; i++){
             for(int j=0; j<myGrid[i].length; j++){
-                if(myGrid[i][j].isMine == false){
+                if(myGrid[i][j].isMine() == false){
                     myGrid[i][j].setup();
                 }
                 System.out.println(myGrid[i][j]);
             } 
         }
     }
-     /* public static String flip(int xCoor, int yCoor){
-        grid[xCoor][yCoor] = actualValue[xCoor][yCoor];
-        return grid[xCoor][yCoor];
-    } */
-    public static int mineNum(){
+    
+    public int mineNum(){
         int numMines = 0;
          for(int i =0; i<myGrid.length; i++){
             for(int j=0; j<myGrid[i].length; j++){
                 numMines = 0;
-                if(myGrid[i][j].isMine == false){
-                    while(myGrid[i+1][j] != null){
-                        if(myGrid[i+1][j].isMine == true){
-                        numMines++;
-                }
-                }
-                    while(myGrid[i-1][j] != null){
-                        if(myGrid[i-1][j].isMine == true){
-                        numMines++;
-                }
-                }
-                    while(myGrid[i][j+1] != null){
-                        if(myGrid[i][j+1].isMine == true){
-                        numMines++;
-                }
-                }
-                    while(myGrid[i][j-1] != null){
-                        if(myGrid[i][j-1].isMine == true){
-                        numMines++;
-                }
+                if(myGrid[i][j].isMine() == false){
+                    for(int m = -1; m<2; m++){
+                        for(int n = -1; n<2; n++){
+                            if(i+m > - 1 && j+n > -1 && i+m < myGrid.length && j+n < myGrid[i].length){
+
+                                if(myGrid[i+m][j+n].isMine() == true){
+                                    numMines++;
+                                }
+                            }
+                        }
+                    }
                 }
                return numMines;
         
