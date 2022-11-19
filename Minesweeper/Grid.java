@@ -1,14 +1,16 @@
 public class Grid {  
-    private static int xSize;
-    private static int ySize;
-    private static int mineNum;
-    Tile[][] myGrid = new Tile[xSize][ySize];
+    private int xSize;
+    private int ySize;
+    private int mineNum;
+    private Tile[][] myGrid;
+   
 
 
     public Grid(int xDim, int yDim, int num){ //setting grid x and y dimensions
         ySize = yDim;
         xSize = xDim;
         mineNum = num;
+        myGrid = new Tile[xSize][ySize];
 
     }
 
@@ -17,29 +19,27 @@ public class Grid {
         for(int i = 0; i< mineNum; i++){
             int x = (int) (Math.random() * xSize);
             int y = (int) (Math.random() * ySize);
-
-            if(myGrid[x][y] != null){
-                if(myGrid[x][y].isMine() == true){
-                    x = (int) (Math.random() * xSize);
-                    y = (int) (Math.random() * ySize);
-                }
+            
+            while (myGrid[x][y] != null){
+                int x = (int) (Math.random() * xSize);
+                int y = (int) (Math.random() * ySize);
             }
-
+        
             Tile myTile = new Tile();
             myGrid[x][y] = myTile;
             myGrid[x][y].markMine();
             
         }
-       
-
-        for(int i =0; i<myGrid.length; i++){
-            for(int j=0; j<myGrid[i].length; j++){
-                if(myGrid[i][j].isMine() == false){
-                    myGrid[i][j].setup();
-                }
-                System.out.println(myGrid[i][j]);
-            } 
-        }
+        
+        for(int i = 0; i<myGrid.length; i++){
+            for(int j = 0; j<myGrid[i].length; j++){
+                if(myGrid[i][j] == null){
+                    Tile blankTile = new Tile();
+                    myGrid[i][j] = blankTile;
+                    blankTile;
+                    
+                
+      
     }
     
     public int mineNum(){
