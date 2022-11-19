@@ -1,12 +1,24 @@
 public class Tile{
-    private boolean isItAMine = false;
-    private boolean mineEdge = false;
-    private int minesNear = 0;
+    private boolean isItAMine;
+    private boolean isItFlagged;
+    private boolean isItFlipped;
+    private int minesNear;
 
- /* public String flip(int xCoor, int yCoor){
-        grid[xCoor][yCoor] = actualValue[xCoor][yCoor];
-        return grid[xCoor][yCoor];
-    } */
+    public Tile(){
+        isItAMine = false;
+        isItFlagged = false;
+        isItFlipped = false;
+        minesNear = 0;
+   
+
+    }
+    public void flip(){
+       isItFlipped = true;
+           
+    } 
+    public void flag(){
+        isItFlagged = true;
+    }
     
     public void markMine(){
         isItAMine = true;
@@ -17,10 +29,39 @@ public class Tile{
 
     }
     
-    public void neigbhorMines(mineNums){
-        minesNear = mineNums;
-        
     
+    public void setMinesNear(mineNums){
+        minesNear = mineNums;
+    }
+    
+    public int getMinesNear(){
+        return minesNear;
+    }
+    
+    public String toString(){
+        if(isItFlipped != true){
+            if(isItFlagged != true){
+                return "[🌫]";
+            }
+            else{
+                return "[⛄]";
+            }
+        }
+        else{
+            if(isItAMine == true){
+                return "[⎈]";
+            }
+            else if(getMinesNear == 0){
+                return "   ";
+            }
+            else{
+                return "(" + minesNear + ")"
+                }
+           
+        }
+        
+            
+           
 
 
    
