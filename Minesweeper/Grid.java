@@ -36,9 +36,10 @@ public class Grid {
                 if(myGrid[i][j] == null){
                     Tile blankTile = new Tile();
                     myGrid[i][j] = blankTile;
-                    blankTile;
-                    
-                
+                    blankTile.neighborMines(mineNum());
+                }
+            }
+        }
       
     }
     
