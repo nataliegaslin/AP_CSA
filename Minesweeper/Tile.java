@@ -1,18 +1,22 @@
 public class Tile{
-    public boolean isMine = false;
+    private boolean isItAMine = false;
     private boolean mineEdge = false;
     int minesNear = 0;
 
-
-
-    public String markMine(){
-        isMine = true;
-        return "*";
+ /* public String flip(int xCoor, int yCoor){
+        grid[xCoor][yCoor] = actualValue[xCoor][yCoor];
+        return grid[xCoor][yCoor];
+    } */
+    
+    public void markMine(){
+        isItAMine = true;
+    }
+          
+    public boolean isMine(){
+        return isItAMine;
 
     }
-    public String setup(){
-        return "[]";
-    }
+    
 
 
    
