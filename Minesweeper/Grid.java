@@ -64,12 +64,20 @@ public class Grid {
     }
 
     public String toString(){ //adds each tile in a given row to a string and then creates a new line for a new row
-        String printGrid = "";
+        String printGrid = "  ";
+        for(int n = 0; n<myGrid.length; n++){
+            printGrid+=n;
+            printGrid +="  ";
+        }
+        printGrid+="\n";
         for(int i = 0; i<myGrid.length; i++){
+            printGrid+=i;
             for(int j = 0; j<myGrid[i].length; j++){  
                 printGrid +=myGrid[i][j];
+                
             }
             printGrid += "\n";
+        
         }
         return printGrid;
     }
