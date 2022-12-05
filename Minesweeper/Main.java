@@ -3,10 +3,9 @@ public class Main{
 
     public static void main(String[] args){ //gets inputs from the user and actually plays the game: determines whether the player wants to flip or flag a tile
         Scanner sc = new Scanner(System.in);
-        System.out.print("How many rows in your grid?");
+        System.out.print("How many rows and columns in your grid?");
         int rowNum = sc.nextInt();
-        System.out.print("How many columns in your grid?");
-        int colNum = sc.nextInt();
+        int colNum = rowNum;
         System.out.print("How many mines in your grid?");
         int mineNum = sc.nextInt();
         sc.nextLine();
