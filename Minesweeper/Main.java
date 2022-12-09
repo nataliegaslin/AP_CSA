@@ -12,9 +12,9 @@ public class Main{
 
         Game newGame = new Game(rowNum, colNum, mineNum);
         newGame.printOut();
-        while(newGame.isGameOver() == false){
+        while(newGame.isGameOver() == false){ //while the game is still being played
             String input = sc.nextLine();
-            if(input.substring(0,1).equals("f")){
+            if(input.substring(0,1).equals("f")){ //if the user wants to flag
                 int indexNum = input.indexOf(" ");
                 int indexNumTwo = input.indexOf(" ", indexNum+1);
                 int rowCoor = Integer.parseInt(input.substring(indexNum+1, indexNumTwo));
@@ -22,12 +22,18 @@ public class Main{
                 newGame.flag(rowCoor, colCoor);
                 newGame.printOut();
             }
-            else{
+            else{ //if the user watns to flip
                 int indexNum = input.indexOf(" ");
                 int rowCoor = Integer.parseInt(input.substring(0, indexNum));
                 int colCoor = Integer.parseInt(input.substring(indexNum+1, input.length()));
-                newGame.flip(rowCoor, colCoor);
-                newGame.printOut();
+                if(rowCoor < (rowNum-1) && (colCoor < colNum-1)){
+                    newGame.flip(rowCoor, colCoor);
+                    newGame.printOut();
+                }
+                else if(rowCoor > rowNum-1 || colCoor > colNum-1){
+                    System.out.println("please enter valid coordinates");
+                    continue;
+                }
             }
         }
         newGame.endMessage();

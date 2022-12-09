@@ -5,7 +5,7 @@ public class Game {
     private int rowNum;
     private int colNum;
 
-    public Game(int rows, int cols, int mines){
+    public Game(int rows, int cols, int mines){ //constructor for the game
         colNum = cols;
         rowNum = rows;
         gameOver = false;
@@ -20,12 +20,12 @@ public class Game {
         if(gameGrid.returnTile(rowCoor, colCoor).returnFlagged() == true){
             System.out.println("This tile is flagged! You cannot flip a flagged tile.");
         }
-        else if(gameGrid.returnTile(rowCoor, colCoor).isMine() == true){
+        else if(gameGrid.returnTile(rowCoor, colCoor).isMine() == true){ //checks if the user hit a mine
              gameGrid.returnTile(rowCoor, colCoor).flip();
              System.out.println("You hit a mine!");
              gameOver = true;
         }
-        else if(gameGrid.returnTile(rowCoor, colCoor).returnFlipped() == true){
+        else if(gameGrid.returnTile(rowCoor, colCoor).returnFlipped() == true){ //prevents a flipped tile from being flipped again
             System.out.println("This tile is already flipped! Please try a different tile.");
         }
         else{
