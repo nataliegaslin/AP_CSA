@@ -51,6 +51,7 @@ public class Tile{
                 return "[ ]";
             }
             else{
+                Colors mycolors = new Colors();
                 return "[⚐]";
             }
         }
@@ -59,7 +60,7 @@ public class Tile{
                 return "[⎈]";
             }
             else if(getMinesNear() == 0){
-                return "[B]";
+                return "[΋]";
             }
             else{
                 return "(" + minesNear + ")";

@@ -14,7 +14,9 @@ public class Game {
     }
     public void printOut(){ //prints out the grid
         System.out.println("Safe tiles left:" + numSafe);
-        System.out.println(gameGrid);
+        Colors mycolor = new Colors();
+        System.out.println(mycolor.purple + gameGrid);
+        
     }
     public void flip(int rowCoor, int colCoor){ //if tile is flagged, print out message, if it is a mine, end the game, otherwise flip tile
         if(gameGrid.returnTile(rowCoor, colCoor).returnFlagged() == true){
