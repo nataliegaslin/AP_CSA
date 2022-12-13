@@ -14,20 +14,11 @@ public class Hangman{
     public static void letterGuess(){
         String input = "";
         System.out.println("Please guess a letter.");
-        switch(input){
-                case "a":
-                    
-                case "b":
-                    passed = runTestTwo();
-                    break;
-                case "3":
-                    passed = runTestThree();
-                    break;
-                case "e":
-                    System.exit(0);
-                default:
-                    System.out.println("Please enter in a valid input.");
-            }
+        Scanner myScanner = new Scanner();
+        String input = myScanner.nextLine();
+        if(printWord.indexOf(input) >= 0){
+            
+        }
     }
 
     public static void printWord(){

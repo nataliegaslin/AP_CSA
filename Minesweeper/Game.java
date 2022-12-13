@@ -39,7 +39,7 @@ public class Game {
         Tile flippedTile = gameGrid.returnTile(rowCoor, colCoor);
         flippedTile.flip();
         numSafe--;
-        if(flippedTile.getMinesNear() == 0){
+        if(flippedTile.getMinesNear() == 0){ //if it's a blank tile
             for(int m = -1; m<2; m+=2){
                 if(rowNum > rowCoor-m && rowCoor-m > - 1){
                     flippedTile = gameGrid.returnTile(rowCoor-m, colCoor);
@@ -63,7 +63,7 @@ public class Game {
        
     
     public void flag(int rowCoor, int colCoor){ //flags a tile on the game board
-        if(gameGrid.returnTile(rowCoor, colCoor).returnFlagged() == true){
+        if(gameGrid.returnTile(rowCoor, colCoor).returnFlagged() == true){ //if it's already flagged, then unflag it
             gameGrid.returnTile(rowCoor, colCoor).unflag();
         }
         else if(gameGrid.returnTile(rowCoor, colCoor).returnFlipped() == true){

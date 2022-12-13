@@ -66,14 +66,21 @@ public class Grid {
     public String toString(){ //adds each tile in a given row to a string and then creates a new line for a new row
         String printGrid = "  ";
         for(int l = 0; l<myGrid.length; l++){
-            printGrid+=l;
-            printGrid +="  ";
+
+            if(l <= 8){
+                printGrid+=l + "  ";
+            }
+            if(l >= 9){
+                printGrid+= l + " ";
+            }
+
         }
         printGrid+="\n";
         for(int i = 0; i<myGrid.length; i++){
-            printGrid+=i;
-            for(int j = 0; j<myGrid[i].length; j++){ 
-                printGrid +=myGrid[i][j];
+                printGrid+=i;
+            for(int j = 0; j<myGrid[i].length; j++){
+                Colors mycolors = new Colors(); 
+                printGrid += myGrid[i][j];
                 
             }
             printGrid += "\n";

@@ -1,4 +1,4 @@
-public class Colors {
+public class Colors { //a class specifically for colors
   public String reset = "\u001B[0m";
   public String black = "\u001B[30m";
   public String red = "\u001B[31m";
