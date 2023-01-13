@@ -27,7 +27,7 @@ public class ScannerPractice {
             System.out.println(lines);
         }
 
-         // for(int i =0; i<lines.length; i++){
+         // for(int i =0; i<ldines.length; i++){
             //lines[i] = lines[i].substring(0,(lines[i].length())/2);
     
 
