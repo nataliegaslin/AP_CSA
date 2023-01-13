@@ -1,9 +1,10 @@
 public class Textbook extends Book{
     public Textbook(){
-
-    }
-    public static void main(String[] args){
-        Textbook myBook = new Textbook();
-        System.out.println(Textbook.getTitle());
+        Scanner sc = new Scanner(BookList.csv);
+        String mystring = sc.nextLine;
+        String [] words = mystring.split(“,”);
+        if(words[1].equals("Textbook")){
+            super.bookList.add()
+        }
     }
 }

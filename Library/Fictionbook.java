@@ -1,3 +1,3 @@
-public class fictionBook extends Book{
+public class FictionBook extends Book{
     
 }
