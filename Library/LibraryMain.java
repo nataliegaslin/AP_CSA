@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.io.File;
 public class LibraryMain{
 
-    public static void main(String[] args){
+    public static void main(String[] args){ //main method to add the books to myList and print the table (and sort them)
         BookList myList = new BookList();
         String bookListString = "";
         try{
@@ -15,15 +15,19 @@ public class LibraryMain{
             if (splitString[1].equals("Fiction")){
                 Book myBook = new FictionBook(bookListString);
                 myList.addToList(myBook);
+                myBook.printInfo();
             }
             if (splitString[1].equals("Nonfiction")){
                 Book myBook = new NonfictionBook(bookListString);
                 myList.addToList(myBook);
+                myBook.printInfo();
             }
             if (splitString[1].equals("Textbook")){
                 Book myBook = new TextBook(bookListString);
                 myList.addToList(myBook);
+                myBook.printInfo();
             }
+            
         }
         myList.sortList("Title");
         myList.printTable();
