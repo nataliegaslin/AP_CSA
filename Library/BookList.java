@@ -1,14 +1,120 @@
-public interface BookList extends Book{
+import java.util.ArrayList;
+public class BookList{
     ArrayList <Book> bookList = new ArrayList<Book>();
-    Scanner sc = new Scanner(BookList.csv);
     
-
     public void addToList(Book newBook){
-        while(sc.hasNextLine){
-            String bookWords = sc.nextLine();
-            if(bookWords.substring(","+1, ",").equals("Fiction")){
-                bookList.add(new Fictionbook)
+        boolean isItAMatch = false;
+        for(Book line : bookList){
+            if(newBook.equals(line) == true){
+                isItAMatch = true;
+                line.incQuantity();
             }
         }
+        if (isItAMatch != true){
+            bookList.add(newBook);
+        
+        }
    }
+    public void removeFromList(Book oldBook){    
+        boolean isItAMatch = false;
+        for(Book line : bookList){
+            if(oldBook.equals(line)){
+                isItAMatch = true;
+                line.decQuantity();
+            }
+        }
+        if (isItAMatch == true && oldBook.getQuantity() < 1){
+            bookList.remove(oldBook);
+        }
+   }
+
+    public void sortList(String sorting_method){
+        String testingMet = "";
+        int currentLowest;
+        String lowestString = "";
+       
+        for(int r = 0; r<bookList.size()-1; r++) {
+            currentLowest = r;
+            for(int j = r+1; j<bookList.size(); j++) {
+                if(sorting_method.equals("Title")){
+                    testingMet = bookList.get(j).getTitle();
+                    lowestString = bookList.get(currentLowest).getTitle();
+                }
+                else if(sorting_method.equals("Author")){
+                    testingMet = bookList.get(j).getAuthor();
+                    lowestString = bookList.get(currentLowest).getAuthor();
+                }
+                else if(sorting_method.equals("Genre")){
+                    testingMet = bookList.get(j).getGenre();
+                    lowestString = bookList.get(currentLowest).getGenre();
+                }
+                else if(sorting_method.equals("Subject")){
+                    testingMet = bookList.get(j).getSubject();
+                    lowestString = bookList.get(currentLowest).getSubject();
+                    if(bookList.get(j).getSubject().equals("N/A")){
+                        testingMet = "";
+                    }
+                }
+                if(testingMet.compareTo(lowestString) < 0){
+                    currentLowest = j;
+                }
+            
+            }
+            Book temp = bookList.get(r);
+            bookList.set(r, bookList.get(currentLowest));
+            bookList.set(currentLowest, temp);
+        }
+    }
+    public void printTable(){
+            System.out.println(" ______________________________________________________________________________________");
+            System.out.println("| Title                     | Genre    | Author            | Subject   | Edition |QTY|");
+            System.out.println("|---------------------------|----------|-------------------|-----------|---------|---|");
+            for(int i = 0; i < bookList.size(); i++){
+                String tableTitle = bookList.get(i).getTitle();
+                int numSpaceTitle = 27 - tableTitle.length();
+                for(int j = 0; j < numSpaceTitle; j ++){
+                    tableTitle += " ";
+                }
+                String tableAuthor = bookList.get(i).getAuthor();
+                int numSpaceAuthor = 19 - tableAuthor.length();
+                for(int j = 0; j < numSpaceAuthor; j ++){
+                    tableAuthor += " ";
+                }
+                String tableGenre =  bookList.get(i).getGenre();
+                int numSpaceGenre = 10 - tableGenre.length();
+                for(int j = 0; j < numSpaceGenre; j ++){
+                    tableGenre += " ";
+                }
+                String tableSubject = bookList.get(i).getSubject();
+                if(tableSubject.equals("")){
+                    tableSubject += "N/A";
+                }
+                int numSpaceSubject = 11 - tableSubject.length();
+                for(int j = 0; j < numSpaceSubject; j ++){
+                    tableSubject += " ";
+                }
+                int tableEdition = bookList.get(i).getEdition();
+                String tableEditionString = "";
+                if(tableEdition < 10){
+                    tableEditionString = "" + tableEdition;
+                    tableEditionString += "        ";
+                }
+                else{
+                    tableEditionString = "" + tableEdition;
+                    tableEditionString += "       ";
+                }
+                int tableQuantity = bookList.get(i).getQuantity();
+                System.out.print("|" + tableTitle);
+                System.out.print("|" + tableGenre);
+                System.out.print( "|" + tableAuthor);
+                System.out.print("|" + tableSubject);
+                System.out.print("|" + tableEditionString);
+                System.out.println("|" + tableQuantity + "  " + "|");
+                
+            }
+            System.out.println("|-------------------------------------------------------------------------------------|");
+
+    }
+        
+   
 }
