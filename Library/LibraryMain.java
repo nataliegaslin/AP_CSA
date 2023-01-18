@@ -21,11 +21,11 @@ public class LibraryMain{
                 myList.addToList(myBook);
             }
             if (splitString[1].equals("Textbook")){
-                Book myBook = new Textbook(bookListString);
+                Book myBook = new TextBook(bookListString);
                 myList.addToList(myBook);
             }
         }
-        myList.sortList("Genre");
+        myList.sortList("Title");
         myList.printTable();
         }
         catch(Exception e){

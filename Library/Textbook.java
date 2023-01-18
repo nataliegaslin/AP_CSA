@@ -1,5 +1,5 @@
-public class Textbook extends Book{
-    public Textbook(String line){
+public class TextBook extends Book{
+    public TextBook(String line){
         super(line);
     }
 
