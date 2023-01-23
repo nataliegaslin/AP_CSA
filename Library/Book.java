@@ -31,7 +31,7 @@ abstract class Book{ //six instance fields
     public void decQuantity(){ //setter method to decrease quantity
         quantity--;
     }
- public int getQuantity(){ //getter method to return quantity
+    public int getQuantity(){ //getter method to return quantity
         return quantity;
     }
     public String getTitle(){ //getter method to return title

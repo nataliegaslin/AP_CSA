@@ -29,7 +29,7 @@ public class LibraryMain{
             }
             
         }
-        myList.sortList("Title");
+        myList.sortList("Subject");
         myList.printTable();
         }
         catch(Exception e){
