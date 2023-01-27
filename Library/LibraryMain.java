@@ -15,21 +15,18 @@ public class LibraryMain{
             if (splitString[1].equals("Fiction")){
                 Book myBook = new FictionBook(bookListString);
                 myList.addToList(myBook);
-                myBook.printInfo();
             }
             if (splitString[1].equals("Nonfiction")){
                 Book myBook = new NonfictionBook(bookListString);
                 myList.addToList(myBook);
-                myBook.printInfo();
             }
             if (splitString[1].equals("Textbook")){
                 Book myBook = new TextBook(bookListString);
                 myList.addToList(myBook);
-                myBook.printInfo();
             }
             
         }
-        myList.sortList("Subject");
+        myList.sortList("Genre");
         myList.printTable();
         }
         catch(Exception e){

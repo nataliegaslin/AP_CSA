@@ -41,7 +41,12 @@ abstract class Book{ //six instance fields
         return edition;
     }
     public String getSubject(){ //getter method to return subject
-        return subject;
+        if(subject.equals("")){
+            return "N/A";
+        }
+        else{
+            return subject;
+        }
     }
     public String getAuthor(){ //getter method to return author
         return author;

@@ -39,34 +39,55 @@ public class BookList{
                 if(sorting_method.equals("Title")){
                     testingMet = bookList.get(j).getTitle();
                     lowestString = bookList.get(currentLowest).getTitle();
+                   
                 }
                 else if(sorting_method.equals("Author")){
                     testingMet = bookList.get(j).getAuthor();
                     lowestString = bookList.get(currentLowest).getAuthor();
+                    if(testingMet.compareTo(lowestString) == 0){
+                        String titleLowest = bookList.get(j).getTitle();
+                        if(testingMet.compareTo(bookList.get(currentLowest).getTitle()) > 0){
+                            currentLowest = j;
+                            lowestString = bookList.get(currentLowest).getAuthor();
+                    }
+                }
                 }
                 else if(sorting_method.equals("Genre")){
                     testingMet = bookList.get(j).getGenre();
                     lowestString = bookList.get(currentLowest).getGenre();
+                    if(testingMet.compareTo(lowestString) == 0){
+                        String titleLowest = bookList.get(j).getTitle();
+                    if(titleLowest.compareTo(bookList.get(currentLowest).getTitle()) > 0){
+                        currentLowest = j;
+                        lowestString = bookList.get(currentLowest).getGenre();
+                    }
+                }
                 }
                 else if(sorting_method.equals("Subject")){
                     testingMet = bookList.get(j).getSubject();
                     lowestString = bookList.get(currentLowest).getSubject();
-                    if(bookList.get(j).getSubject().equals("N/A")){ //for those without a subject
-                        testingMet = "";
+                    if(testingMet.compareTo(lowestString) == 0){
+                         String titleLowest = bookList.get(j).getTitle();
+                        if(testingMet.compareTo(bookList.get(currentLowest).getTitle()) > 0){
+                            currentLowest = j;
+                            lowestString = bookList.get(currentLowest).getSubject();
+                        }
                     }
                 }
+              
                 if(testingMet.compareTo(lowestString) < 0){
                     currentLowest = j;
                 }
             
             }
+             
             Book temp = bookList.get(r);
             bookList.set(r, bookList.get(currentLowest)); //changes the bookList by adding the lowest values first 
             bookList.set(currentLowest, temp);
         }
     }
     public void printTable(){ //prints out the table
-            System.out.println(" ______________________________________________________________________________________");
+            System.out.println(" _____________________________________________________________________________________");
             System.out.println("| Title                     | Genre    | Author            | Subject   | Edition |QTY|");
             System.out.println("|---------------------------|----------|-------------------|-----------|---------|---|");
             for(int i = 0; i < bookList.size(); i++){
