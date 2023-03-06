@@ -1,52 +1,32 @@
 import java.io.File;
 import java.util.*;
 import java.io.FileNotFoundException;
-import java.util.Random;
+import java.lang.Math.*;
 public class Hangman{
-     public static int randomWord(){
-        Random rand = new Random();
-        int upperbound = 41;
-        int lowerbound = 0;
-        int randomNumber = rand.nextInt(upperbound);
+    public int getRandomWord(){
+        int randomNumber = 2 + (int)(Math.random() * 846);     
         return randomNumber;
     }
-
-    public static void letterGuess(){
-        String input = "";
-        System.out.println("Please guess a letter.");
-        Scanner myScanner = new Scanner();
-        String input = myScanner.nextLine();
-        if(printWord.indexOf(input) >= 0){
-            
-        }
-    }
-
-    public static void printWord(){
-    
-    }
-
-    public static void main (String[] args) throws FileNotFoundException{
-        File words = new File ("HangmanWords");
-        Scanner myScanner = new Scanner(words);
-        int fileLines = 0;
-
-        while(myScanner.hasNextLine()){// does it have another line?
-            myScanner.nextLine();
-            fileLines ++;
-        }
-
-        String [] hangman = new String[fileLines];
-        myScanner = new Scanner(words);
-
-        for (int j=0; j<fileLines; j++){
-            hangman[j] = myScanner.nextLine();
-
-
-        }
-        int i = randomWord();
-        int n = hangman[i].length();
-        System.out.println("Your word has " + n + " letters.");
-        letterGuess();
+    public static void printWord(int randomNumber){
+        try{
+            String easyWord = "EasyWord.txt";
+            File myFile = new File(easyWord);
+            Scanner sc = new Scanner(myFile);
+            ArrayList <String> words = new ArrayList<String>();
+            while(sc.hasNextLine()){
+                words.add(sc.nextLine());
             }
+            System.out.println(words.get(randomNumber));
+        }
+        catch (FileNotFoundException ev){
+            System.out.println("fail");
+        }
+    }
+    public static void main(String[] args){
+        Hangman myGame = new Hangman();
+        int index = myGame.getRandomWord();
+        System.out.println(index);
+        printWord(index);
+    }
 
 }
