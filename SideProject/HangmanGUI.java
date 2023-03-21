@@ -7,17 +7,17 @@ import java.awt.event.*;
 public class HangmanGUI{
     private JFrame frame;
 
-    public HangmanGUI(){
-        prepareGUI();
+    public HangmanGUI(Hangman game){
+        prepareGUI(game);
     }
 
     public static void main(String[] args){
-        HangmanGUI swingControlDemo = new HangmanGUI();
-        swingControlDemo.prepareGUI();
+        Hangman myGame = new Hangman("easy");
+        HangmanGUI swingControlDemo = new HangmanGUI(myGame);
 
     }
    
-   private void setUpLetters(JPanel pane){
+   private void setUpLetters(JPanel pane, Hangman game){
         String letters = "abcdefghijklmnopqrstuvwxyz";
         String[] lettersArray = new String[26];
         for(int i = 0; i < letters.length(); i++){
@@ -41,11 +41,11 @@ public class HangmanGUI{
                 numXLetters = 0;
             }
             pane.add(a, constra);
-            pane.setVisible(true);
 
             a.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 a.setVisible(false);
+                game.addLetter(letter);
             }
             });
             
@@ -61,7 +61,6 @@ public class HangmanGUI{
         constra.gridwidth = 13;
         constra.ipady = 400;
         pane.add(picture, constra);
-        pane.setVisible(true);
 
     }
 
@@ -81,19 +80,19 @@ public class HangmanGUI{
         constra.gridwidth = 13;
         constra.ipady = 20;
         pane.add(word, constra);
-        pane.setVisible(true);
 
     }
 
-    private void prepareGUI(){
+    private void prepareGUI(Hangman newGame){
         frame = new JFrame("Play Hangman");
         JPanel pane = new JPanel(new GridBagLayout());
-        setUpLetters(pane);
-        setUpPicture(pane,6);
-        setUpWord(pane,"I did it!!!");
-        frame.add(pane); 
+        setUpLetters(pane, newGame);
+        setUpPicture(pane,newGame.returnNumBodyParts());
+        setUpWord(pane, newGame.returnHiddenWord());
+        
         frame.setSize(1200,800);
+        frame.add(pane); 
         frame.setVisible(true);
-        pane.setVisible(true);
+        
     }
 }

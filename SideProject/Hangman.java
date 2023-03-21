@@ -98,6 +98,9 @@ public class Hangman{
            hiddenWord = firstPart + letter + secondPart;
            startIndex = num+1;
         }
+        if(theWord.contains(letter) == false){
+            numBodyParts++;
+        }
     }
     public String returnTheWord(){
         return theWord;
