@@ -6,14 +6,20 @@ import java.awt.event.*;
 
 public class HangmanGUI{
     private JFrame frame;
+    private JPanel pane;
+    private String newWord = "";
+    private String secretWord = "";
 
     public HangmanGUI(Hangman game){
-        prepareGUI(game);
+        //prepareGUI(game);
+        newWord = game.returnTheWord();
+        secretWord = game.returnHiddenWord();
     }
 
     public static void main(String[] args){
         Hangman myGame = new Hangman("easy");
         HangmanGUI swingControlDemo = new HangmanGUI(myGame);
+        swingControlDemo.prepareGUI(myGame);
 
     }
    
@@ -34,6 +40,7 @@ public class HangmanGUI{
             constra.fill = GridBagConstraints.HORIZONTAL;
             constra.gridx = numXLetters;
             constra.gridy = numYLetters;
+            constra.ipady = 20;
             constra.anchor = GridBagConstraints.PAGE_START;
             numXLetters++;
             if(letter.equals("m")){
@@ -45,7 +52,7 @@ public class HangmanGUI{
             a.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 a.setVisible(false);
-                game.addLetter(letter);
+                updateWord(letter, game);
             }
             });
             
@@ -65,12 +72,12 @@ public class HangmanGUI{
     }
 
     private void setUpWord(JPanel pane, String guessWord){
-        String newWord = "";
+        secretWord = "";
         for(int i = 0; i < guessWord.length(); i++){
-            newWord += guessWord.substring(i, i+1);
-            newWord += " ";
+            secretWord += guessWord.substring(i, i+1);
+            secretWord += " ";
         }
-        JLabel word = new JLabel(newWord);
+        JLabel word = new JLabel(secretWord);
         word.setHorizontalAlignment(SwingConstants.CENTER);
         word.setFont(new java.awt.Font("Arial", Font.BOLD, 32));
         GridBagConstraints constra = new GridBagConstraints();
@@ -83,12 +90,43 @@ public class HangmanGUI{
 
     }
 
+    private void updateWord(String letter, Hangman newGame){
+        newGame.addLetter(letter);
+        JPanel pane = new JPanel(new GridBagLayout());
+        String workWord = newGame.returnHiddenWord();
+        secretWord = " ";
+        for(int i = 0; i < workWord.length(); i++){
+            secretWord += workWord.substring(i, i+1);
+            secretWord += " ";
+        }
+        JLabel word = new JLabel(secretWord);
+        word.setHorizontalAlignment(SwingConstants.CENTER);
+        word.setFont(new java.awt.Font("Arial", Font.BOLD, 32));
+        GridBagConstraints constra = new GridBagConstraints();
+        constra.fill = GridBagConstraints.HORIZONTAL;
+        constra.gridx = 0;
+        constra.gridy = 12;
+        constra.gridwidth = 13;
+        constra.ipady = 20;
+        pane.add(word, constra);
+        JPanel picture = new PicturePanel(newGame.returnNumBodyParts());
+        GridBagConstraints constrai = new GridBagConstraints();
+        constrai.fill = GridBagConstraints.HORIZONTAL;
+        constrai.gridx = 0;
+        constrai.gridy = 2;
+        constrai.gridwidth = 13;
+        constrai.ipady = 400;
+        pane.add(picture, constrai);
+        frame.setSize(1600,1200);
+        frame.add(pane);
+    }
+
     private void prepareGUI(Hangman newGame){
         frame = new JFrame("Play Hangman");
-        JPanel pane = new JPanel(new GridBagLayout());
+        pane = new JPanel(new GridBagLayout());
         setUpLetters(pane, newGame);
         setUpPicture(pane,newGame.returnNumBodyParts());
-        setUpWord(pane, newGame.returnHiddenWord());
+        setUpWord(pane, secretWord);
         
         frame.setSize(1200,800);
         frame.add(pane); 
