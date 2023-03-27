@@ -8,6 +8,8 @@ public class Hangman{
     private String theWord;
     private String hiddenWord = "";
     private int numBodyParts = 0;
+    private boolean gameOver = false;
+    private boolean didIWin = false;
 
     public Hangman (String difficulty){
         diff = difficulty;
@@ -100,6 +102,12 @@ public class Hangman{
         }
         if(theWord.contains(letter) == false){
             numBodyParts++;
+            if(numBodyParts == 6){
+                gameOver = true;
+            }
+        }
+        if(theWord.equals(hiddenWord)){
+            gameOver = true;
         }
     }
     public String returnTheWord(){
@@ -113,6 +121,11 @@ public class Hangman{
     public int returnNumBodyParts(){
         return numBodyParts;
     }
+
+    public boolean returnGameOver(){
+        return gameOver;
+    }
+
 
     public static void main(String[] args){
         Hangman myGame = new Hangman("medium");
