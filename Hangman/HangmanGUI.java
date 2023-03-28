@@ -22,8 +22,15 @@ public class HangmanGUI{
         swingControlDemo.prepareGUI(myGame);
 
     }
+
+    private void setDiff(){
+        JButton easy = new JButton("easy");
+        JButton medium = new JButton("medium");
+        JButton hard = new JButton("hard");
+        pane.add(easy);
+    }
    
-   private void setUpLetters(JPanel pane, Hangman game){
+    private void setUpLetters(JPanel pane, Hangman game){
         String letters = "abcdefghijklmnopqrstuvwxyz";
         String[] lettersArray = new String[26];
         for(int i = 0; i < letters.length(); i++){
@@ -107,11 +114,11 @@ public class HangmanGUI{
                 word.setText("You lost! The word was " + newGame.returnTheWord());
             }
             String newSecretWord = "";
-            for(int i = 0; i < newGame.returnTheWord().length(); i+=2){
+            for(int i = 0; i < secretWord.length(); i+=2){
                 newSecretWord += secretWord.substring(i, i+1);
             }
             if (newSecretWord.equals(newGame.returnTheWord())){
-                word.setText("Congrats! You won! :) " + newGame.returnTheWord());
+                word.setText("Congrats! You won! :) The word was " + newGame.returnTheWord());
             }
         }
     }
