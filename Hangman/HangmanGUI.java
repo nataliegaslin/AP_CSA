@@ -16,18 +16,14 @@ public class HangmanGUI{
         secretWord = game.returnHiddenWord();
     }
 
-    public static void main(String[] args){
-        Hangman myGame = new Hangman("medium");
-        HangmanGUI swingControlDemo = new HangmanGUI(myGame);
-        swingControlDemo.prepareGUI(myGame);
+    public HangmanGUI(){
 
     }
 
-    private void setDiff(){
-        JButton easy = new JButton("easy");
-        JButton medium = new JButton("medium");
-        JButton hard = new JButton("hard");
-        pane.add(easy);
+    public static void main(String[] args){
+        Hangman myGame = new Hangman();
+        HangmanGUI newGame = new HangmanGUI();
+        newGame.askDiff(myGame);
     }
    
     private void setUpLetters(JPanel pane, Hangman game){
@@ -134,5 +130,68 @@ public class HangmanGUI{
         frame.add(pane); 
         frame.setVisible(true);
         
+        
     }
-}
+
+    private void askDiff(Hangman game){
+        JFrame myFrame = new JFrame("Set Difficulty Level");
+        JPanel myPane = new JPanel(new GridBagLayout());
+        JButton easy = new JButton("easy");
+        JButton medium = new JButton("medium");
+        JButton hard = new JButton("hard");
+        JButton HP = new JButton ("harry potter");
+        myPane.add(HP);
+        myPane.add(easy);
+        myPane.add(medium);
+        myPane.add(hard);
+        easy.setVisible(true);
+        medium.setVisible(true);
+        hard.setVisible(true);
+        HP.setVisible(true);
+        myFrame.add(myPane);
+        GridBagConstraints constra = new GridBagConstraints();
+        constra.fill = GridBagConstraints.HORIZONTAL;
+            constra.ipady = 20;
+        myFrame.setSize(600,600);
+        myFrame.setVisible(true);
+        myPane.setVisible(true);
+        easy.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Hangman newestGame = new Hangman("easy");
+                prepareGUI(newestGame);
+                setUpWord(pane, newestGame.returnHiddenWord());
+                myFrame.setVisible(false);
+               
+            }
+            });
+        medium.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Hangman newestGame = new Hangman("medium");
+                prepareGUI(newestGame);
+                setUpWord(pane, newestGame.returnHiddenWord());
+                myFrame.setVisible(false);
+               
+            }
+            });
+        hard.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Hangman newestGame = new Hangman("hard");
+                prepareGUI(newestGame);
+                setUpWord(pane, newestGame.returnHiddenWord());
+                myFrame.setVisible(false);
+               
+            }
+            });    
+        HP.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Hangman newestGame = new Hangman("harry potter");
+                prepareGUI(newestGame);
+                setUpWord(pane, newestGame.returnHiddenWord());
+                myFrame.setVisible(false);
+               
+            }
+            });
+            
+        }
+    }
+    

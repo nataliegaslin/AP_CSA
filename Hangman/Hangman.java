@@ -15,8 +15,17 @@ public class Hangman{
         diff = difficulty;
         theWord = getWord(randNumber());
         for(int i = 0; i < theWord.length(); i++){
-            hiddenWord += "_";
+            if(theWord.substring(i, i+1).equals(" ")){
+                hiddenWord += " ";
+            }
+            else{
+                hiddenWord += "_";
+            }
         }
+    }
+
+    public Hangman(){
+        
     }
 
     public int randNumber(){
@@ -30,6 +39,10 @@ public class Hangman{
         }
         else if (diff == "hard"){
             int randomNumber = 2 + (int)(Math.random()*211);
+            return randomNumber;
+        }
+        else if (diff == "harry potter"){
+            int randomNumber = 2 + (int)(Math.random()*187);
             return randomNumber;
         }
         else{
@@ -86,6 +99,21 @@ public class Hangman{
                 return null;
             }
         }
+        else if(diff == "harry potter"){
+            try{
+                String HPWord = "HPCharacters.txt";
+                File myFile = new File(HPWord);
+                Scanner sc = new Scanner(myFile);
+                ArrayList <String> words = new ArrayList<String>();
+                while(sc.hasNextLine()){
+                    words.add(sc.nextLine());
+                }
+                return (words.get(randomNumber));
+            }
+            catch (FileNotFoundException ev){
+                return null;
+            }
+        }
         else{
             return "";
         }
@@ -106,10 +134,19 @@ public class Hangman{
                 gameOver = true;
             }
         }
-        if(theWord.equals(hiddenWord)){
+        String noSpaces = "";
+        String editedWord = "";
+        for(int i = 0; i < hiddenWord.length(); i++){
+            noSpaces = hiddenWord.replace(" ", "");
+        }
+        for(int j = 0; j < theWord.length(); j++){
+            editedWord = theWord.replace(" ", "");
+        }
+        if(editedWord.equals(noSpaces)){
             gameOver = true;
         }
     }
+
     public String returnTheWord(){
         return theWord;
     }
@@ -126,20 +163,4 @@ public class Hangman{
         return gameOver;
     }
 
-
-    public static void main(String[] args){
-        Hangman myGame = new Hangman("medium");
-        Hangman myGame2 = new Hangman("medium");
-        Hangman myGame3 = new Hangman("hard");
-        System.out.println(myGame.returnTheWord());
-        System.out.println(myGame.returnHiddenWord());
-        myGame.addLetter("a");
-        System.out.println(myGame.returnHiddenWord());
-        myGame.addLetter("r");
-        System.out.println(myGame.returnHiddenWord());
-        myGame.addLetter("t");
-        System.out.println(myGame.returnHiddenWord());
-        myGame.addLetter("e");
-        System.out.println(myGame.returnHiddenWord());
-    }
 }
